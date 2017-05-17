@@ -1,0 +1,12 @@
+#!/bin/sh
+ARGS=$(aws-ssh-cli "$@")
+if [ $? -ne 170 ]; then
+    if [ ! -z "$ARGS" ]; then
+        echo "$ARGS"
+    fi
+    exit 1
+fi
+if [ -z "$ARGS" ]; then
+    exit 1
+fi
+ssh $ARGS
