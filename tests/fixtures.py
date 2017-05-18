@@ -1,7 +1,10 @@
 """Shared test fixtures."""
 # pylint: disable=redefined-outer-name,no-self-use,unused-argument,protected-access,missing-docstring
 
-from unittest.mock import patch
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
 
 import pytest
 

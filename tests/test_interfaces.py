@@ -2,11 +2,14 @@
 import json
 import os.path
 from collections import namedtuple
-from unittest.mock import call, MagicMock, patch, mock_open, PropertyMock
+try:
+    from unittest.mock import call, MagicMock, patch, mock_open, PropertyMock
+except ImportError:
+    from mock import call, MagicMock, patch, mock_open, PropertyMock
 
 import pytest
 from pexpect import pxssh
-from six.moves.configparser import ConfigParser  # pylint: disable=import-error
+from configparser import ConfigParser  # pylint: disable=import-error
 
 from aws_ssh import errors
 from aws_ssh.interfaces import DEFAULT_AWSSH_CONFIG, DEFAULT_PROJECT_CONFIG, Environment, Instance, Project

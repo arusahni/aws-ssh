@@ -1,7 +1,9 @@
 # pylint: disable=redefined-outer-name,no-self-use,unused-argument,protected-access,missing-docstring,invalid-name,line-too-long
-from io import StringIO
 from collections import namedtuple
-from unittest.mock import MagicMock, PropertyMock, patch, mock_open
+try:
+    from unittest.mock import MagicMock, PropertyMock, patch, mock_open
+except ImportError:
+    from mock import MagicMock, PropertyMock, patch, mock_open
 
 import pytest
 import six
@@ -45,7 +47,7 @@ def prompt_mock():
 def test_print_ssh_args(exit_mock):
     with patch('aws_ssh.cli.get_ssh_args') as get_args:
         get_args.return_value = ('/path/to/test_key', 'test_user', '0.0.0.0')
-        outstream = StringIO()
+        outstream = six.StringIO()
         cli.print_ssh_args(out=outstream)
         assert isinstance(get_args.call_args[0][0], list)
         output = outstream.getvalue().strip()
@@ -66,7 +68,7 @@ def test_init_environment():
 
 def test_prompt_for_arg():
     arg = cli.Argument('switch', 'metavar', 'description', 'prompt')
-    outstream = StringIO()
+    outstream = six.StringIO()
     with patch('aws_ssh.cli.input') as input_mock:
         input_mock.return_value = 'foo'
         value = cli.prompt_for_arg(arg, out=outstream)
