@@ -7,7 +7,9 @@ python:
   - "3.6"
 install:
   - pip install .
-  - pip install -U pytest mock
+  - pip install -U pytest pytest-cov coveralls mock
 script:
-  - python -m pytest
+  - python -m pytest --cov=aws_ssh
+after_success:
+  - coveralls
 sudo: false

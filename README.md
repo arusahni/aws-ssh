@@ -1,6 +1,7 @@
 # AWS-SSH
 
 [![Build Status](https://travis-ci.org/arusahni/aws-ssh.svg?branch=master)](https://travis-ci.org/arusahni/aws-ssh)
+[![Coverage Status](https://coveralls.io/repos/github/arusahni/aws-ssh/badge.svg?branch=master)](https://coveralls.io/github/arusahni/aws-ssh?branch=master)
 
 SSH into your project-specific AWS EC2 instances by name, without having to
 remember IP addresses & private keys, or a curating a SSH config.
