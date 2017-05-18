@@ -32,7 +32,7 @@ to your PATH.  For example:
 $ mkvirtualenv -p $(which python3) aws-ssh # Python 3 recommended
 $ pip install aws-ssh
 # Assuming ~/bin/ is in your $PATH...
-$ ln -s ~/.virtualenvs/aws-ssh/bin/{aws-ssh,awssh,ssh-ec2} ~/bin/
+$ ln -s ~/.virtualenvs/aws-ssh/bin/{aws-ssh,awssh,ssh-ec2,aws-ssh-cli} ~/bin/
 $ deactivate
 ```
 
